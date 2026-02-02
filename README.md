@@ -6,30 +6,27 @@ Simple Agreement for Future Liquidity
 > **License:** MIT License (Open Source)
 
 ## The Problem: The "Deep End" Liquidity Crisis
-The venture capital model is currently facing a historic liquidity logjam. For funds from the 2016–2019 vintages, **65% to 90% of returns remain unmonetized**. 
-
-While the industry solved the *entry* friction with the **SAFE (Simple Agreement for Future Equity)**, the *exit* process remains stuck in the dark ages. Small-ticket secondary transfers (e.g., an early employee selling $50k of stock) are currently plagued by:
-* **High Legal Costs:** Custom SPAs cost more than the spread of the trade.
-* **Administrative Friction:** Companies block transfers due to ROFR/Co-Sale complexity.
-* **Information Asymmetry:** Buyers lack standardized diligence data.
+For venture funds from the 2016–2019 vintages, **65% to 90% of returns remain unmonetized**. 
+While the industry solved the *entry* friction with the **SAFE**, the *exit* process for small-ticket secondaries (e.g., an early employee selling $50k of stock) is broken:
+* **High Legal Costs:** Custom SPAs often cost $5k–$10k, eating up the spread on small trades.
+* **Administrative Friction:** Companies block transfers to avoid the hassle of ROFR waivers and board consents.
+* **Information Asymmetry:** Sellers lack the diligence data Buyers demand.
 
 ## The Solution: The SALE Protocol
-The **SALE (Simple Agreement for Liquidity Exit)** is an open-source standard designed to streamline secondary liquidity. It is a unified instrument that functions as a:
+The **SALE (Simple Agreement for Liquidity Exit)** is an open-source standard designed to streamline secondary liquidity. It functions as a unified:
 1.  **Purchase Agreement** (with standardized pricing/discounts).
-2.  **Waiver of ROFR** (pre-baked for the Company).
-3.  **Universal Joinder** (binding the Buyer to existing Voting/IRA agreements).
+2.  **Deemed Joinder** (automatically binding the Buyer to existing Voting/IRA agreements).
+3.  **Waiver Mechanism** (designed to pair with a pre-approved Board Policy).
 
 ### Key Features
-* **"Flow-Through" Closing:** Funds settle *through* the Company, ensuring the Cap Table is updated before money is released (solving the "phantom closing" risk).
-* **The "Big Boy" Waiver:** Mandatory acknowledgement of information asymmetry to protect Sellers and Companies from litigation.
-* **Administrative Fee:** A standard $2,500 fee payable to the Company to cover the cost of execution.
+* **Direct Settlement:** Buyers pay Sellers directly, reducing Company liability.
+* **The "Big Boy" Waiver:** Mandatory acknowledgement of information asymmetry to protect the Company from litigation.
+* **Administrative Fee:** A standardized $2,500 fee payable to the Company to incentivize fast processing.
 
 ## How to Use This
-1.  **Download** the `SALE_v2.0_Standard.docx` from this repository.
-2.  **Fill in the Variables:**
-    * **Reference Price:** (e.g., Last 409A or Last Preferred Round).
-    * **Discount:** (e.g., 20%).
-3.  **Execute:** Sign via DocuSign. The Company acts as the final signatory and Paying Agent.
+1.  **Download** the `SALE_v1.0.docx`.
+2.  **Fill in the Variables:** Reference Price (e.g., Last 409A), Discount (e.g., 20%), and Admin Fee Payer.
+3.  **Execute:** The Company signs *solely* to confirm the waiver and update the cap table.
 
 ## Disclaimer & Attribution
 **Author:** Evan J. Lonergan  
