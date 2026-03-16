@@ -1,5 +1,5 @@
 # SALE
-Simple Agreement for Future Liquidity
+Simple Agreement for Liquidity
 # Project SALE: Simple Agreement for Liquidity Exit
 
 > **Status:** Beta v1.0 (Open for Comment)
