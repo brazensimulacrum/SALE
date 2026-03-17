@@ -28,6 +28,11 @@ The **SALE (Simple Agreement for Liquidity Exit)** is an open-source standard de
 2.  **Fill in the Variables:** Reference Price (e.g., Last 409A), Discount (e.g., 20%), and Admin Fee Payer.
 3.  **Execute:** The Company signs *solely* to confirm the waiver and update the cap table.
 
+## Documentation
+- **[User Guide](SALE_User_Guide.md)** — Step-by-step instructions, worked example, and explanation of key provisions. Also available as a [PDF](SALE_User_Guide.pdf).
+- **[Board Resolution Template](Board_Resolution_Secondary_Liquidity_Policy.md)** — Form Unanimous Written Consent for companies adopting a Secondary Liquidity Program. Also available as an editable [DOCX](Board_Resolution_Secondary_Liquidity_Policy.docx).
+- **[Contributing](CONTRIBUTING.md)** — How to report issues, suggest changes, or contribute to the project.
+
 ## Disclaimer & Attribution
 **Author:** Evan J. Lonergan
 **Affiliation:** This project was developed by the author in his personal capacity as a contribution to the open-source legal ecosystem. It is NOT a work product of Michael Best & Friedrich LLP. No firm resources or proprietary precedents were utilized in its construction.
