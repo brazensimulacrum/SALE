@@ -3,57 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project SALE | Simple Agreement for Liquidity Exit</title>
+    <title>SALE | Simple Agreement for Liquidity Exit</title>
+    <meta name="description" content="The SALE is an open-source, standardized instrument for venture secondary stock transfers. Download the protocol, user guide, and board resolution template.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #000000; --link: #0000EE; --grid: #f0f0f0; }
-        body { font-family: 'Courier New', Courier, monospace; line-height: 1.6; color: var(--text); background-color: var(--bg); margin: 0; padding: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 20px 20px; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; background: var(--bg); border-left: 1px solid var(--text); border-right: 1px solid var(--text); min-height: 100vh; }
-        header { border-bottom: 2px solid var(--text); padding-bottom: 20px; margin-bottom: 40px; }
-        h1 { font-size: 1.5rem; text-transform: uppercase; margin: 0; }
-        .tagline { font-size: 0.9rem; color: #666; }
-        .hero { margin-bottom: 60px; }
-        .hero h2 { font-size: 2rem; border: 3px solid var(--text); padding: 20px; display: inline-block; margin-top: 0; }
-        .section { margin-bottom: 40px; }
-        h3 { text-transform: uppercase; border-bottom: 1px solid var(--text); display: inline-block; margin-bottom: 10px; }
-        .download-box { border: 1px solid var(--text); padding: 20px; margin-top: 20px; }
-        a { color: var(--link); text-decoration: none; font-weight: bold; }
-        a:hover { background: var(--text); color: var(--bg); }
-        footer { font-size: 0.7rem; margin-top: 100px; border-top: 1px dashed #ccc; padding-top: 20px; color: #888; }
-        .btn { border: 2px solid var(--text); padding: 10px 20px; display: inline-block; text-transform: uppercase; margin-right: 10px; }
+        :root {
+            --bg: #f4f6f8;
+            --surface: #ffffff;
+            --grid: #d8dce3;
+            --grid-accent: #c2c8d2;
+            --border: #bcc3ce;
+            --text: #1a1f2b;
+            --text-mid: #3d4555;
+            --text-dim: #6b7280;
+            --accent: #1b5e8a;
+            --accent-light: rgba(27, 94, 138, 0.08);
+            --accent-border: rgba(27, 94, 138, 0.25);
+            --mono: 'IBM Plex Mono', monospace;
+            --serif: 'IBM Plex Serif', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--serif);
+            background-color: var(--bg);
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+                linear-gradient(var(--grid-accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-accent) 1px, transparent 1px);
+            background-size:
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px;
+            background-position: -1px -1px;
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 56px 0 0;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--surface);
+            border: 1px solid var(--accent-border);
+            padding: 5px 14px;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            font-family: var(--mono);
+            font-size: clamp(42px, 8vw, 64px);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: var(--serif);
+            font-size: 17px;
+            font-style: italic;
+            color: var(--text-dim);
+            margin-bottom: 36px;
+        }
+
+        .rule {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto 36px;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            color: var(--text-mid);
+            max-width: 560px;
+            margin: 0 auto 52px;
+            text-align: center;
+        }
+
+        .hero-text strong {
+            color: var(--text);
+        }
+
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 32px 28px;
+            margin-bottom: 32px;
+        }
+
+        .panel h2 {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--grid);
+        }
+
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--grid);
+        }
+
+        .download-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .download-label {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .download-label .format {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            margin-left: 4px;
+            text-transform: uppercase;
+        }
+
+        .download-link {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent-border);
+            background: var(--accent-light);
+            padding: 5px 14px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .download-link:hover {
+            background: rgba(27, 94, 138, 0.15);
+            border-color: var(--accent);
+        }
+
+        .panel p {
+            font-size: 15px;
+            color: var(--text-mid);
+            margin-bottom: 12px;
+        }
+
+        .panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .feature {
+            border: 1px solid var(--grid);
+            padding: 16px;
+            background: var(--bg);
+        }
+
+        .feature .label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .feature .value {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--grid);
+            font-size: 13px;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-key {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .spec-val {
+            color: var(--text-mid);
+            text-align: right;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0 48px;
+            text-align: center;
+            background: var(--surface);
+        }
+
+        footer p {
+            font-size: 12px;
+            color: var(--text-dim);
+            line-height: 1.9;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        footer a:hover {
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 520px) {
+            .download-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .panel {
+                padding: 24px 20px;
+            }
+            h1 {
+                letter-spacing: 0.08em;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>PROJECT SALE [BETA v1.0]</h1>
-            <div class="tagline">An Open-Source Protocol for Venture Liquidity</div>
-        </header>
+    <header>
+        <div class="container">
+            <div class="badge">Beta v1.0 &mdash; Open for Comment</div>
+            <h1>SALE</h1>
+            <div class="subtitle">Simple Agreement for Liquidity Exit</div>
+            <div class="rule"></div>
+            <p class="hero-text">
+                An open-source protocol for venture secondary transactions.
+                <strong>One document. Standardized pricing. No custom SPA required.</strong>
+            </p>
+        </div>
+    </header>
 
-        <section class="hero">
-            <h2>THE LIQUIDITY LOGJAM ENDS HERE.</h2>
-            <p>The SALE (Simple Agreement for Liquidity Exit) is a standardized instrument designed to solve the $500B venture secondary overhang. $0 Legal Fees. 3 Days to Close.</p>
-        </section>
+    <main class="container">
 
-        <section class="section">
-            <h3>Download the Protocol</h3>
-            <div class="download-box">
-                <p><strong>v1.0 Standard Instrument (DOCX)</strong><br>
-                <a href="https://github.com/brazensimulacrum
-/SALE/raw/main/SALE.docx" target="_blank">[ DOWNLOAD FROM GITHUB ]</a></p>
-                <p><strong>The User Guide & Whitepaper</strong><br>
-                <a href="https://github.com/brazensimulacrum
-/SALE" target="_blank">[ VIEW DOCUMENTATION ]</a></p>
+        <div class="panel">
+            <h2>Download</h2>
+            <div class="download-item">
+                <span class="download-label">SALE Instrument <span class="format">docx</span></span>
+                <a class="download-link" href="https://github.com/brazensimulacrum/SALE/raw/main/SALE.docx">Download</a>
             </div>
-        </section>
+            <div class="download-item">
+                <span class="download-label">User Guide <span class="format">pdf</span></span>
+                <a class="download-link" href="https://github.com/brazensimulacrum/SALE/raw/main/SALE_User_Guide.pdf">Download</a>
+            </div>
+            <div class="download-item">
+                <span class="download-label">Board Resolution Template <span class="format">docx</span></span>
+                <a class="download-link" href="https://github.com/brazensimulacrum/SALE/raw/main/Board_Resolution_Secondary_Liquidity_Policy.docx">Download</a>
+            </div>
+            <div class="download-item">
+                <span class="download-label">GitHub Repository</span>
+                <a class="download-link" href="https://github.com/brazensimulacrum/SALE">View Source</a>
+            </div>
+        </div>
 
-        <section class="section">
-            <h3>Why it exists</h3>
-            <p>Venture returns for 2016-2019 vintages remain 65-90% unmonetized. The SALE creates a "friction-free" exit path for early employees and seed investors by standardizing pricing, waivers, and joinders.</p>
-        </section>
+        <div class="panel">
+            <h2>The Problem</h2>
+            <p>
+                Venture returns for 2016&ndash;2019 vintages remain 65&ndash;90% unmonetized. For small-ticket secondaries &mdash; an early employee selling $50K&ndash;$200K of stock &mdash; the cost of a custom stock purchase agreement ($5K&ndash;$10K in legal fees) eats the economics of the trade. Companies block transfers because processing them is expensive and administratively burdensome.
+            </p>
+        </div>
 
-        <footer>
-            Built by Evan J. Lonergan. MIT License. This is an open-source hobby project and NOT a work product of Michael Best & Friedrich LLP. Not legal advice.
-        </footer>
-    </div>
+        <div class="panel">
+            <h2>The Solution</h2>
+            <p>
+                The SALE is a standardized instrument that combines a purchase agreement, ROFR waiver, and deemed joinder into a single document. It is designed for arm&rsquo;s-length secondary transfers of private company stock where standardization reduces friction for all three parties.
+            </p>
+            <div class="features">
+                <div class="feature">
+                    <div class="label">Unified Document</div>
+                    <div class="value">Purchase agreement, ROFR waiver, and joinder in one form.</div>
+                </div>
+                <div class="feature">
+                    <div class="label">No Custom Drafting</div>
+                    <div class="value">Fill in the blanks and execute. No bespoke SPA required.</div>
+                </div>
+                <div class="feature">
+                    <div class="label">409A Protection</div>
+                    <div class="value">Pricing anchored to objective benchmarks with a disclosed discount.</div>
+                </div>
+                <div class="feature">
+                    <div class="label">Board-Ready</div>
+                    <div class="value">Companion board resolution pre-authorizes transfers within guardrails.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>How It Works</h2>
+            <p>
+                Download the SALE, fill in the variable fields (class of stock, number of shares, reference price, discount), and execute with three signatures: Seller, Buyer, and Company. The Company signs solely to confirm the ROFR waiver and update the cap table. A $2,500 standardized administrative fee covers the Company&rsquo;s processing costs.
+            </p>
+            <p>
+                For companies expecting repeat transactions, the Board Resolution Template establishes a Secondary Liquidity Program with pricing guardrails, volume caps, and eligible buyer criteria &mdash; allowing officers to approve and process SALEs without a full board vote.
+            </p>
+            <p>
+                The User Guide includes step-by-step instructions, a worked example with sample calculations, and a detailed explanation of every provision.
+            </p>
+        </div>
+
+        <div class="panel">
+            <h2>Specifications</h2>
+            <div class="spec-row">
+                <span class="spec-key">Jurisdiction</span>
+                <span class="spec-val">Delaware corporations</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-key">Buyer Requirement</span>
+                <span class="spec-val">Accredited Investor (Reg D)</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-key">Securities Exemption</span>
+                <span class="spec-val">Section 4(a)(7) / Rule 144</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-key">Admin Fee</span>
+                <span class="spec-val">$2,500 (standardized)</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-key">License</span>
+                <span class="spec-val">CC0 1.0 (Public Domain)</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-key">Version</span>
+                <span class="spec-val">v1.0 &mdash; March 2026</span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                Built by Evan J. Lonergan.
+                <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> (Public Domain).
+                <br>
+                This is an open-source project and is NOT a work product of Michael Best &amp; Friedrich LLP.
+                <br>
+                Not legal advice. Consult your own counsel.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
